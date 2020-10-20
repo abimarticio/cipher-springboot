@@ -28,6 +28,11 @@ public class CaesarCipher {
 		return String.valueOf(encryptedText);
 	}
 	
+	/**
+	 * Returns decrypted text using Caesar cipher.
+	 * @param text The encrypted text to decrypt.
+	 * @return The decrypted text.
+	 */
 	public String decryptText(String text) {
 		char [] decryptedText = text.toUpperCase().toCharArray();
 		for (int index = 0; index < decryptedText.length; index ++) {
