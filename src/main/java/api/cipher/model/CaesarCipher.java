@@ -12,4 +12,14 @@ public class CaesarCipher {
 	public CaesarCipher(int key) {
 		this.key = key;
 	}
+	
+	public String encryptText(String text) {
+		char[] encryptedText = text.toUpperCase().toCharArray();
+		for(int index = 0; index < encryptedText.length; index++) {
+			int letterIndex  = ALPHABET.indexOf(encryptedText[index]);
+			int cipherIndex = (letterIndex + this.key) % ALPHABET.length();
+			encryptedText[index] = ALPHABET.charAt(cipherIndex);
+		}
+		return String.valueOf(encryptedText);
+	}
 }
