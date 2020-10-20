@@ -27,4 +27,14 @@ public class CaesarCipher {
 		}
 		return String.valueOf(encryptedText);
 	}
+	
+	public String decryptText(String text) {
+		char [] decryptedText = text.toUpperCase().toCharArray();
+		for (int index = 0; index < decryptedText.length; index ++) {
+			int letterIndex = ALPHABET.indexOf(decryptedText[index]);
+			int cipherIndex = (letterIndex - this.key) % ALPHABET.length();
+			decryptedText[index] = ALPHABET.charAt(cipherIndex);
+		}
+		return String.valueOf(decryptedText);
+	}
 }
