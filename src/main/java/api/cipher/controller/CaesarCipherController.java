@@ -20,8 +20,10 @@ public class CaesarCipherController {
 	}
 	
 	@GetMapping("/decrypt")
-	public String decryptText(@RequestParam(value="text", required=true) String text) {
-		CaesarCipher caesarCipher = new CaesarCipher(4);
+	public String decryptText(@RequestParam Map <String, String> requestParameters) {
+		int key = Integer.valueOf(requestParameters.get("key"));
+		String text = requestParameters.get("text");
+		CaesarCipher caesarCipher = new CaesarCipher(key);
 		String decryptedText = caesarCipher.decryptText(text);
 		return decryptedText;
 	}
