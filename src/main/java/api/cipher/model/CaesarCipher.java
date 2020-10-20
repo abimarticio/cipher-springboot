@@ -13,6 +13,11 @@ public class CaesarCipher {
 		this.key = key;
 	}
 	
+	/**
+	 * Returns an encrypted text using Caesar cipher.
+	 * @param text The input text to encrypt.
+	 * @return The encrypted text.
+	 */
 	public String encryptText(String text) {
 		char[] encryptedText = text.toUpperCase().toCharArray();
 		for(int index = 0; index < encryptedText.length; index++) {
