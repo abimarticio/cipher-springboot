@@ -14,4 +14,11 @@ public class CaesarCipherController {
 		String encryptedText = caesarCipher.encryptText(text);
 		return encryptedText;
 	}
+	
+	@GetMapping("/decrypt")
+	public String decryptText(@RequestParam(value="text", required=true) String text) {
+		CaesarCipher caesarCipher = new CaesarCipher(4);
+		String decryptedText = caesarCipher.decryptText(text);
+		return decryptedText;
+	}
 }
