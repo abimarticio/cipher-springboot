@@ -10,7 +10,7 @@ import java.util.Map;
 @RestController
 public class CaesarCipherController {
 
-	@GetMapping("/encrypt")
+	@GetMapping("/caesar/encrypt")
 	public String encryptText(@RequestParam Map <String, String> requestParameters) {
 		int key = Integer.valueOf(requestParameters.get("key"));
 		String text = requestParameters.get("text");
