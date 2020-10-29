@@ -41,10 +41,17 @@ We can call our API in Python through the following manner,
 >>> r.text
 'HELLO'
 ```
+
 We can call our API using `curl` command in the following manner,
 
 ```buildoutcfg
-$ curl -s -X GET "localhost:8080/decrypt?text=jgnnq&key=2"
+$ curl -s -X GET "localhost:8080/atbash/encrypt?text=hello"
+SVOOL
+$ curl -s -X GET "localhost:8080/atbash/decrypt?text=svool"
+HELLO
+$ curl -s -X GET "localhost:8080/caesar/encrypt?text=hello&key=2"
+JGNNQ
+$ curl -s -X GET "localhost:8080/caesar/decrypt?text=jgnnq&key=2"
 HELLO
 ```
 
