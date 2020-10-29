@@ -20,6 +20,12 @@ In this repository, we implement the Atbash and Caesar cipher algorithms. To use
 * `/caesar/encrypt` for Caesar encryption. The request parameters for this function are `text` and `key`.
 * `/caesar/decrypt` for Caesar decryption. The request parameters for this function are `text` and `key`.
 
+To run this app, we can use Maven:
+
+```buildoutcfg
+$ ./mvnw spring-boot:run
+```
+
 We can call our API in Python through the following manner,
 
 ```python
