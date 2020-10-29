@@ -13,22 +13,51 @@ This project has the following dependencies,
 
 ## Usage
 
-Currently, we have two functions: (1) `encrypt` and (2) `decrypt`.
+In this repository, we implement the Atbash and Caesar cipher algorithms. To use these algorithms, we have the following view functions:
+
+* `/atbash/encrypt` for Atbash encryption. The request parameter for this function is `text`.
+* `/atbash/decrypt` for Atbash decryption. The request parameter for this function is `text`.
+* `/caesar/encrypt` for Caesar encryption. The request parameters for this function are `text` and `key`.
+* `/caesar/decrypt` for Caesar decryption. The request parameters for this function are `text` and `key`.
+
+To run this app, we can use Maven:
+
+```buildoutcfg
+$ ./mvnw spring-boot:run
+```
 
 We can call our API in Python through the following manner,
 
 ```python
 >>> import requests
->>> r = requests.get("http://localhost:8080/encrypt?text=hello&key=2")
+>>> r = requests.get("http://localhost:8080/atbash/encrypt?text=hello")
+>>> r.status_code
+200
+>>> r.text
+'SVOOL'
+>>> r = requests.get("http://localhost:8080/atbash/decrypt?text=svool")
+>>> r.text
+'HELLO'
+>>> r = requests.get("http://localhost:8080/caesar/encrypt?text=hello&key=2")
 >>> r.status_code
 200
 >>> r.text
 'JGNNQ'
+>>> r = requests.get("http://localhost:8080/caesar/decrypt?text=jgnnq&key=2")
+>>> r.text
+'HELLO'
 ```
+
 We can call our API using `curl` command in the following manner,
 
 ```buildoutcfg
-$ curl -s -X GET "localhost:8080/decrypt?text=jgnnq&key=2"
+$ curl -s -X GET "localhost:8080/atbash/encrypt?text=hello"
+SVOOL
+$ curl -s -X GET "localhost:8080/atbash/decrypt?text=svool"
+HELLO
+$ curl -s -X GET "localhost:8080/caesar/encrypt?text=hello&key=2"
+JGNNQ
+$ curl -s -X GET "localhost:8080/caesar/decrypt?text=jgnnq&key=2"
 HELLO
 ```
 
