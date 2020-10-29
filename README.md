@@ -13,7 +13,12 @@ This project has the following dependencies,
 
 ## Usage
 
-Currently, we have two functions: (1) `encrypt` and (2) `decrypt`.
+In this repository, we implement the Atbash and Caesar cipher algorithms. To use these algorithms, we have the following view functions:
+
+* `/atbash/encrypt` for Atbash encryption. The request parameter for this function is `text`.
+* `/atbash/decrypt` for Atbash decryption. The request parameter for this function is `text`.
+* `/caesar/encrypt` for Caesar encryption. The request parameters for this function are `text` and `key`.
+* `/caesar/decrypt` for Caesar decryption. The request parameters for this function are `text` and `key`.
 
 We can call our API in Python through the following manner,
 
