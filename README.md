@@ -24,11 +24,22 @@ We can call our API in Python through the following manner,
 
 ```python
 >>> import requests
->>> r = requests.get("http://localhost:8080/encrypt?text=hello&key=2")
+>>> r = requests.get("http://localhost:8080/atbash/encrypt?text=hello")
+>>> r.status_code
+200
+>>> r.text
+'SVOOL'
+>>> r = requests.get("http://localhost:8080/atbash/decrypt?text=svool")
+>>> r.text
+'HELLO'
+>>> r = requests.get("http://localhost:8080/caesar/encrypt?text=hello&key=2")
 >>> r.status_code
 200
 >>> r.text
 'JGNNQ'
+>>> r = requests.get("http://localhost:8080/caesar/decrypt?text=jgnnq&key=2")
+>>> r.text
+'HELLO'
 ```
 We can call our API using `curl` command in the following manner,
 
